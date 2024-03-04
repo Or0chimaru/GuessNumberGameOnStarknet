@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>greet</title>
+  <base href="/" />
+  <link rel="icon" href="favicon.ico" />
+  <link type="text/css" rel="stylesheet" href="main.css" />
+  <link type="text/css" rel="stylesheet" href="simple.min.css" />
+</head>
+
+<body>
+  <main>
+    <img src="logo2.svg" alt="DFINITY logo" />
+    <br />
+    <br />
+    <form>
+      <button id="login">Login!</button>
+    </form>
+    <br />
+    <form>
+      <button id="greet">Check My Principal ID</button>
+    </form>
+    <section id="greeting"></section>
+  </main>
+
+  <h3>Guess 2/3 of the Average Game</h3>
+
+  <p>
+    Guess 2/3 of the Average Game is a game with no dominant strategy. In this game, several participants are asked to
+    each give a number in a specified range, and the person whose number is closest to 2/3 of the average will be the
+    winner. Participants were blinded to each other's choices.
+  </p>
+  <p>
+    If you want to learn more, you can watch <a
+      href="https://www.youtube.com/watch?v=MknV3t5QbUc&ab_channel=TED-Ed">this video</a>
+  </p>
+  <p>
+    猜均值的三分之二是一项没有支配性策略的博弈。在这个游戏中，若干个参与者被要求每人给出一个指定区间的数字，所给出的数字最接近平均值2/3的那个人将会是获胜者。参与者之间并不知道其他人的选择。
+  </p>
+  <p>
+    如希望深入了解，可以观看 <a href="https://www.bilibili.com/video/BV1rw41187Jy/">该视频</a> <br>
+  </p>
+
+  <div>
+    <button id="check_guess_history">Check My Guess History</button>
+    <section id="guess_history"></section>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th colspan="4">Short Term Rounds</th>
+      </tr>
+    </thead>
+
+    <tbody>
+
+      <tr>
+        <td>Info</td>
+        <td>Hour</td>
+        <td>Day</td>
+        <td>Week</td>
+      </tr>
+      <tr>
+        <td>take a guess</td>
+        <td><input type="number" min="0" max="100" id="hourGuessVal"><br><button id="hourTakeAGuessBtn">submit</button></td>
+        <td><input type="number" min="0" max="500" id="dayGuessVal"><br><button id="dayTakeAGuessBtn">submit</button></td>
+        <td><input type="number" min="0" max="1000" id="weekGuessVal"><br><button id="weekTakeAGuessBtn">submit</button></td>
+      </tr>
+      <tr>
+        <td>guess number range</td>
+        <td>[<span id="hourMinNumRange">loading</span> , <span id="hourMaxNumRange">loading</span>]</td>
+        <td>[<span id="dayMinNumRange">loading</span> , <span id="dayMaxNumRange">loading</span>]</td>
+        <td>[<span id="weekMinNumRange">loading</span> , <span id="weekMaxNumRange">loading</span>]</td>
+      </tr>
+      <tr>
+        <td>current players</td>
+        <td><span id="hourCurrentRoundPlayersAmount">loading...</span></td>
+        <td><span id="dayCurrentRoundPlayersAmount">loading...</span></td>
+        <td><span id="weekCurrentRoundPlayersAmount">loading...</span></td>
+      </tr>
+      <tr>
+        <td>remaining time</td>
+        <td id="hourCurrentRoundRemainingTime">loading...</td>
+        <td id="dayCurrentRoundRemainingTime">loading...</td>
+        <td id="weekCurrentRoundRemainingTime">loading...</td>
+      </tr>
+      <tr>
+        <td>current round</td>
+        <td id="hourCurrentRound">loading...</td>
+        <td id="dayCurrentRound">loading...</td>
+        <td id="weekCurrentRound">loading...</td>
+      </tr>
+      <tr>
+        <td>guess points cost</td>
+        <td id="hourRoundGuessPointsCost">loading</td>
+        <td id="dayRoundGuessPointsCost">loading</td>
+        <td id="weekRoundGuessPointsCost">loading</td>
+      </tr>
+      <tr>
+        <td>my guess</td>
+        <td id="myHourCurrentRoundGuess">you need to login</td>
+        <td id="myDayCurrentRoundGuess">you need to login</td>
+        <td id="myWeekCurrentRoundGuess">you need to login</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table>
+    <thead>
+      <tr>
+        <th colspan="4">Long Term Rounds</th>
+      </tr>
+    </thead>
+
+    <tbody>
+
+      <tr>
+        <td>Info</td>
+        <td>Month</td>
+        <td>Season</td>
+        <td>Year</td>
+      </tr>
+      <tr>
+        <td>take a guess</td>
+        <td><input type="number" min="0" max="2000" id="monthGuessVal"><br><button id="monthTakeAGuessBtn">submit</button></td>
+        <td><input type="number" min="0" max="4000" id="seasonGuessVal"><br><button id="seasonTakeAGuessBtn">submit</button></td>
+        <td><input type="number" min="0" max="10000" id="yearGuessVal"><br><button id="yearTakeAGuessBtn">submit</button></td>
+      </tr>
+      <tr>
+        <td>guess number range</td>
+        <td>[<span id="monthMinNumRange">loading</span> , <span id="monthMaxNumRange">loading</span>]</td>
+        <td>[<span id="seasonMinNumRange">loading</span> , <span id="seasonMaxNumRange">loading</span>]</td>
+        <td>[<span id="yearMinNumRange">loading</span> , <span id="yearMaxNumRange">loading</span>]</td>
+      </tr>
+      <tr>
+        <td>current players</td>
+        <td><span id="monthCurrentRoundPlayersAmount">loading...</span></td>
+        <td><span id="seasonCurrentRoundPlayersAmount">loading...</span></td>
+        <td><span id="yearCurrentRoundPlayersAmount">loading...</span></td>
+      </tr>
+      <tr>
+        <td>remaining time</td>
+        <td id="monthCurrentRoundRemainingTime">loading...</td>
+        <td id="seasonCurrentRoundRemainingTime">loading...</td>
+        <td id="yearCurrentRoundRemainingTime">loading...</td>
+      </tr>
+      <tr>
+        <td>current round</td>
+        <td id="monthCurrentRound">loading...</td>
+        <td id="seasonCurrentRound">loading...</td>
+        <td id="yearCurrentRound">loading...</td>
+      </tr>
+      <tr>
+        <td>guess points cost</td>
+        <td id="monthRoundGuessPointsCost">loading...</td>
+        <td id="seasonRoundGuessPointsCost">loading...</td>
+        <td id="yearRoundGuessPointsCost">loading...</td>
+      </tr>
+      <tr>
+        <td>my guess</td>
+        <td id="myMonthCurrentRoundGuess">you need to login</td>
+        <td id="mySeasonCurrentRoundGuess">you need to login</td>
+        <td id="myYearCurrentRoundGuess">you need to login</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div>
+    <table id="pointsTable">
+      <thead>
+        <tr>
+          <th colspan="3">Players Points</th>
+        </tr>
+      </thead>
+
+      <tbody id="pointsTableBody">
+        <tr>
+          <td>Order</td>
+          <td>Address</td>
+          <td>Points</td>
+        </tr>
+
+
+      </tbody>
+    </table>
+  </div>
+
+  <footer><a href="https://github.com/Or0chimaru/guess_number_game">Github</a></footer>
+</body>
+
+</html>
